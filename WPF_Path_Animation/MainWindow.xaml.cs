@@ -21,6 +21,7 @@ namespace WPF_Path_Animation
     /// </summary>
     public partial class MainWindow : Window
     {
+	// constructor
         public MainWindow()
         {
             InitializeComponent();
@@ -50,7 +51,7 @@ namespace WPF_Path_Animation
             PathFigure pathFigure = new PathFigure();
             pathFigure.StartPoint = new Point(0, 0);
 
-            // коллекция сегметов
+            // коллекция сегментов
             PathSegmentCollection pathSegmentCollection = new PathSegmentCollection();
             pathSegmentCollection.Add(new BezierSegment(new Point(35, 0), new Point(135, 0), new Point(160, 100), true));
             pathSegmentCollection.Add(new BezierSegment(new Point(180, 190), new Point(285, 200), new Point(510, 100), true));
@@ -66,9 +67,6 @@ namespace WPF_Path_Animation
             pathGeometry.Figures = pathFigureCollection;
 
             MatrixAnimationUsingPath matrixAnimation = new MatrixAnimationUsingPath();
-
-            // создание геометрии на основе структуры классов
-            //matrixAnimation.PathGeometry = pathGeometry;
 
             // создание геометрии на основе XAML-кода
             matrixAnimation.PathGeometry = PathGeometry.CreateFromGeometry(Geometry.Parse("M 0, 0 C 35, 0 135, 0 160, 100 180, 190 285, 200 510, 100"));
